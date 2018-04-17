@@ -1,7 +1,7 @@
 ---
 title: "The timing of carbohydrates intake"
-subtitle: "in the National Diet and Nutrition Survey Rolling Programme (2008-2014)"
-author: "Chaochen Wang <br> Supervisor: Luigi Palla"
+subtitle: "the National Diet and Nutrition Survey Rolling Programme (2008-2014)"
+author: "Chaochen Wang"
 date: "2018/4/23"
 output:
   xaringan::moon_reader:

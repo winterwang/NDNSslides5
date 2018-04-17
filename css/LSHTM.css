@@ -143,18 +143,19 @@ thead, tfoot, tr:nth-child(even) { background: none; }
   text-shadow: none;
   padding-top: 0px;
   margin-top: 0px;
+  line-height: 1.2;
 }
 
 /* H3 fonts */
 .title-slide h3 {
   font-size: 28px;
-  font-weight: normal;
-  color: #666666;
+  font-weight: bold;
+  color: #515151;
   text-align: center;
   text-shadow: none;
   padding: 0px;
   margin: 0px;
-  line-height: 1;
+  line-height: 1.2;
 }
 
 /* Remove slide count */
