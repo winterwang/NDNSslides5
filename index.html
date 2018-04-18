@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 # The timing of carbohydrates intake
 ## the National Diet and Nutrition Survey Rolling Programme (2008-2014)
 ### Chaochen Wang
-### 2018/4/23
+### 2018/4/23-Project Talk (LG6)
 
 ---
 
@@ -39,6 +39,10 @@ class: center, middle, inverse, title-slide
 
 - Three distinct temporal eating patterns were identified (next 2 slides) in both Australian poulation &lt;sup&gt;&lt;a href='#bib-Leech2017'&gt;[6]&lt;/a&gt;&lt;/sup&gt; and general population in the UK.
 
+???
+
+
+
 ---
 
 background-image: url("./img/Selection_126.png")
@@ -46,7 +50,7 @@ background-size: contain
 
 class: center, top
 
-## Australian men
+# Australian men
 
 ---
 
@@ -56,16 +60,66 @@ background-size: contain
 class: center, top
 
 
-## the UK NDNS RP
+# the UK NDNS RP
 
 ---
+class: middle
 # Objectives
 
 - .medium[Investigate the timing of eating within the day and specific nutrients -- carbohydrates.]
 
 - .medium[Potentially it can be broken down further into some of their components: starch, glucose, sucrose, maltose, fructose, lactose, etc.]
-
+ 
 - .medium[Additionally, depending on the findings of preceding analysis, the association between carbohydrate eating patterns and diabetes and/or obesity will be explored.]
+
+---
+class: middle
+# Methods (1) -- data
+
+- .medium[the NDNS RP is an ongoing program funded by the UK government on the purpose of surveillance of the food consumption, nutrient intake, and nutritional status of the general UK population.]
+
+- .medium[Data can be downloaded from [the UK data service](https://www.ukdataservice.ac.uk/)]
+
+- .medium[Target population: adults, age range 19-64 years (sample size: around 5250).]
+
+- .medium[Collection of dietary data: the four-day food diary.]
+
+
+
+???
+
+4 consecutive days as the food diary recording period. Participants were provided with a diary and asked to keep a record of everything they ate and drank over these four days, both in and outide the home.
+
+---
+
+background-image: url("./img/2018-04-18_104306.png")
+background-size: contain
+
+---
+
+background-image: url("./img/2018-04-18_104407.png")
+background-size: contain
+
+---
+
+background-image: url("./img/2018-04-18_104433.png")
+background-size: contain
+
+
+---
+class: middle
+# Methods (2) -- analysis
+
+- Latent Class Analysis (CLA): to separate people into several eating pattern groups and also to calculate the probability of an Eating Occasion (EO) occurring for each class for every hour of the day
+
+- For every hour of the that being more highly qualified was associated with eating later
+day we calculated whether an EO had occurred.
+
+- The definition of an eating occasion specifically for carbohydrates need to be defined.
+
+- Multiple days (3-4 days) of dietary intake records need to be combined (average). 
+
+- Association between the defined eating pattern groups defined by CLA and obesity/diabetes will be explored through by logistic regression models.
 
 ---
 # References
@@ -88,17 +142,17 @@ In: &lt;em&gt;PLoS medicine&lt;/em&gt; 8.12 (2011), p. e1001141.&lt;/cite&gt;&lt
 &lt;p&gt;&lt;a id='bib-DeBacquer2009'&gt;&lt;/a&gt;&lt;a href="#cite-DeBacquer2009"&gt;[4]&lt;/a&gt;&lt;cite&gt;
 D. De Bacquer, et al.
 &amp;ldquo;Rotating shift work and the metabolic syndrome: a prospective study&amp;rdquo;.
-In: &lt;em&gt;International journal of epidemiology&lt;/em&gt; 38.3 (2009), pp. 848&amp;ndash;854.&lt;/cite&gt;&lt;/p&gt;
+In: &lt;em&gt;Int J Epidemiol&lt;/em&gt; 38.3 (2009), pp. 848&amp;ndash;854.&lt;/cite&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a id='bib-Almoosawi2016'&gt;&lt;/a&gt;&lt;a href="#cite-Almoosawi2016"&gt;[5]&lt;/a&gt;&lt;cite&gt;
 S. Almoosawi, et al.
 &amp;ldquo;Chrono-nutrition: a review of current evidence from observational studies on global trends in time-of-day of energy intake and its association with obesity&amp;rdquo;.
-In: &lt;em&gt;Proceedings of the Nutrition Society&lt;/em&gt; 75.4 (2016), pp. 487&amp;ndash;500.&lt;/cite&gt;&lt;/p&gt;
+In: &lt;em&gt;Proc Nutr Soc&lt;/em&gt; 75.4 (2016), pp. 487&amp;ndash;500.&lt;/cite&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a id='bib-Leech2017'&gt;&lt;/a&gt;&lt;a href="#cite-Leech2017"&gt;[6]&lt;/a&gt;&lt;cite&gt;
 R. M. Leech, et al.
 &amp;ldquo;Temporal eating patterns: a latent class analysis approach&amp;rdquo;.
-In: &lt;em&gt;International Journal of Behavioral Nutrition and Physical Activity&lt;/em&gt; 14.1 (2017), p. 3.&lt;/cite&gt;&lt;/p&gt;
+In: &lt;em&gt;Int J Behav Nutr Phys Act&lt;/em&gt; 14.1 (2017), p. 3.&lt;/cite&gt;&lt;/p&gt;
 
 ---
 
@@ -106,9 +160,7 @@ class: center, middle
 
 # Thanks!
 
-Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
-
-The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](http://yihui.name/knitr), and [R Markdown](https://rmarkdown.rstudio.com).
+Slides address: [wangcc.me/NDNS5slides](http://wangcc.me/NDNSslides5/)
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
