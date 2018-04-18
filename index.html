@@ -41,7 +41,13 @@ class: center, middle, inverse, title-slide
 
 ???
 
+- There is evidence indicating that "temporal eating patterns" is potentially associated with health outcomes.
 
+- Here are some examples in the literature. 
+
+- However, currently very few studies have investigated when people consume food throughout the day.
+
+- Some initial work based on eating occasions at hourly time intervals throughout the day from survey data, revealed the presence of 3 groups of eaters. These analyses were based on total evergy consumption.
 
 ---
 
@@ -50,7 +56,17 @@ background-size: contain
 
 class: center, top
 
-# Australian men
+# Australian (NNPAS)
+
+???
+
+- Australian National Nutrition and Physical Activity Survey found that in both men and women, Australian adults have three distinct eating patterns: 
+
+- "Conventiional": about 40% in both men and women, had a high conditional probability (&gt; 0.7) for having meals at 12:00 and 18:00. 
+
+- "Later lunch": about 30% in both men and women, had a more than 0.9 of probability of having lunch at 13:00.
+
+- "Grazing": about 20%-30% in both men and women, had frequent but no obvious peak in probability of eating, and had higher probability of eating after 20:00 compared with the other two patterns. 
 
 ---
 
@@ -58,9 +74,23 @@ background-image: url("./img/Selection_127.png")
 background-size: contain
 
 class: center, top
-
-
 # the UK NDNS RP
+
+???
+
+Similarly, three types of meal time classes were identified in the UK National Nutrion survey: 
+
+- a standard meal class (the red line) 
+
+- a later meal class (the green line) 
+
+- an irregular meal time class (the blue line). 
+
+28% of Men and 31% of women fell into the standard class &lt;br&gt;
+35% of Men and 27% of women fell into the later class &lt;br&gt;
+37% of Men and 42% of women fell into the irregular meal time class.
+
+
 
 ---
 class: middle
@@ -72,23 +102,32 @@ class: middle
  
 - .medium[Additionally, depending on the findings of preceding analysis, the association between carbohydrate eating patterns and diabetes and/or obesity will be explored.]
 
+???
+
+In this project, we aimed to 
+
+
+
+
 ---
 class: middle
 # Methods (1) -- data
 
-- .medium[the NDNS RP is an ongoing program funded by the UK government on the purpose of surveillance of the food consumption, nutrient intake, and nutritional status of the general UK population.]
+- .medium[[the NDNS RP](https://www.gov.uk/government/collections/national-diet-and-nutrition-survey) is an ongoing programme funded by the UK government on the purpose of surveillance of the food consumption, nutrient intake, and nutritional status of the general UK population.]
 
 - .medium[Data can be downloaded from [the UK data service](https://www.ukdataservice.ac.uk/)]
 
-- .medium[Target population: adults, age range 19-64 years (sample size: around 5250).]
+- .medium[Target population for this project: adults, age range 19-64 years (sample size: around 5250).]
 
 - .medium[Collection of dietary data: the four-day food diary.]
 
-
-
 ???
+Let's briefly explain the data source, 
 
-4 consecutive days as the food diary recording period. Participants were provided with a diary and asked to keep a record of everything they ate and drank over these four days, both in and outide the home.
+
+The food diary contains 4 consecutive days of dietary records. Participants were provided with a diary and asked to keep a record of everything they ate and drank over these four days, both in and outide the home.
+
+The example of the food diary is shown in the next few slides.
 
 ---
 
@@ -110,16 +149,23 @@ background-size: contain
 class: middle
 # Methods (2) -- analysis
 
-- Latent Class Analysis (CLA): to separate people into several eating pattern groups and also to calculate the probability of an Eating Occasion (EO) occurring for each class for every hour of the day
+- Latent Class Analysis (CLA): to separate people into several eating pattern groups and also to calculate the probability of an Eating Occasion (EO) occurring for each class for every hour of the day. 
 
-- For every hour of the that being more highly qualified was associated with eating later
-day we calculated whether an EO had occurred.
+- For every hour of the day whether an EO had occurred need to be calculated.
 
-- The definition of an eating occasion specifically for carbohydrates need to be defined.
+- The definition of an eating occasion specifically for carbohydrates need to be defined (total energy intake may also need to be adjusted).
 
 - Multiple days (3-4 days) of dietary intake records need to be combined (average). 
 
 - Association between the defined eating pattern groups defined by CLA and obesity/diabetes will be explored through by logistic regression models.
+
+???
+
+The statistical methods here we are going to use is Latent class analysis. I will need to go through the methodlogy of this technique and clarify the differences and similarities of LCA with cluster analysis and principal component analysis.
+
+Further potential issues that I can anticipate currently is that (on the slides)... 
+
+
 
 ---
 # References
