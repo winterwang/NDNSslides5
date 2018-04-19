@@ -19,8 +19,6 @@ options(htmltools.dir.version = FALSE)
 ```
 
 
-
-
 # Background
 
 .medium["Temporal eating patterns"--the timing, frequency, and regularity of food intake or eating occasions across the day may play a role in health outcomes:] 
