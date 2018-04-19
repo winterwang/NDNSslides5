@@ -150,7 +150,7 @@ class: middle
 
 - Latent Class Analysis (CLA): to separate people into several eating pattern groups and also to calculate the probability of an Eating Occasion (EO) occurring for each class for every hour of the day. 
 
-- For every hour of the day whether an EO had occurred need to be calculated.
+- For every hour of the day whether an EO had occurred need to be calculated individually.
 
 - The definition of an eating occasion specifically for carbohydrates need to be defined (total energy intake may also need to be adjusted).
 
