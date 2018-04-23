@@ -54,17 +54,16 @@
 }
 
 @Article{DeBacquer2009,
-  author        = {De Bacquer, Dirk and Van Risseghem, Marleen and Clays, Els and Kittel, France and De Backer, Gui and Braeckman, Lutgart},
-  title         = {Rotating shift work and the metabolic syndrome: a prospective study},
-  journal       = {Int J Epidemiol},
-  year          = {2009},
-  volume        = {38},
-  number        = {3},
-  pages         = {848--854},
-  __markedentry = {[ccwang:]},
-  owner         = {ccwang},
-  publisher     = {Oxford University Press},
-  timestamp     = {2018.04.17},
+  author    = {De Bacquer, Dirk and Van Risseghem, Marleen and Clays, Els and Kittel, France and De Backer, Gui and Braeckman, Lutgart},
+  title     = {Rotating shift work and the metabolic syndrome: a prospective study},
+  journal   = {Int J Epidemiol},
+  year      = {2009},
+  volume    = {38},
+  number    = {3},
+  pages     = {848--854},
+  owner     = {ccwang},
+  publisher = {Oxford University Press},
+  timestamp = {2018.04.17},
 }
 
 @Article{Leech2017,
@@ -75,10 +74,23 @@
   volume        = {14},
   number        = {1},
   pages         = {3},
-  __markedentry = {[ccwang:6]},
+  __markedentry = {[ccwang:]},
   owner         = {ccwang},
   publisher     = {BioMed Central},
   timestamp     = {2018.04.17},
+}
+
+@Article{Mansukhani2018,
+  author        = {Mansukhani, R and Palla, L},
+  title         = {Investigating eating time patterns in UK adults from The 2008--2012 National Diet and Nutrition Survey},
+  journal       = {Proc Nutr Soc},
+  year          = {2018},
+  volume        = {77},
+  number        = {OCE1},
+  __markedentry = {[ccwang:6]},
+  owner         = {ccwang},
+  publisher     = {Cambridge University Press},
+  timestamp     = {2018.04.23},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
