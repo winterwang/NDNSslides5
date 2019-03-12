@@ -100,7 +100,7 @@ class: middle
 
 - .medium[Investigate the timing of eating within the day and specific nutrients -- carbohydrates.]
 
-- .medium[Potentially we will also look at the temporal patterns of carbohydrates quality, more specifically intrinsic milk sugar, extrinsic milk sugar, starch and non-starch polysaccharide.]
+- .medium[~~Potentially we will also look at the temporal patterns of carbohydrates quality, more specifically intrinsic milk sugar, extrinsic milk sugar, starch and non-starch polysaccharide.~~]
  
 - .medium[Additionally, depending on the findings of preceding analysis, the association between carbohydrates eating patterns and diabetes and/or obesity will be explored.]
 
@@ -109,19 +109,24 @@ class: middle
 In this project, we aimed to 
 
 
+---
+class:middle
+# Chrononutrition and NDNS data
 
+- First hurdle is represented by the need (for collection) of **suitable** data that record the timing of food consumption.
+
+- National Diet and Nutrition Survey 2008-2016 presents an opportunity: 
+    - Collects 3 or 4 consecutive days' diet diaries from about 1000 people yearly; 
+    - Reprensentative sample of the British population;
+    - Records information on the time of eating for each eating occasion.
 
 ---
 class: middle
-# Methods (1) -- data
+# NDNS RP data
 
 - .medium[[The NDNS RP](https://www.gov.uk/government/collections/national-diet-and-nutrition-survey) is an ongoing programme funded by the UK government on the purpose of surveillance of the food consumption, nutrient intake, and nutritional status of the general UK population.]
 
-- .medium[Data can be downloaded from [the UK data service](https://www.ukdataservice.ac.uk/)]
-
-- .medium[Target population for this project: adults, age range 19-64 years (sample size: 3662).] 
-    - Year 1-4: 1126 men and 1571 women
-    - Year 5-6: 373 men and 592 women
+- .medium[Data can be downloaded from [the UK data service](https://www.ukdataservice.ac.uk/)] after application (within 30 min).
 
 - .medium[Collection of dietary data: the four-day food diary.]
 
@@ -149,30 +154,158 @@ background-size: contain
 background-image: url("./img/2018-04-18_104433.png")
 background-size: contain
 
+---
+class: middle
+# Challenges 
+
+- Timing of food intake may vary depending on 
+  - different classification of time (temporal intervals); 
+  - Use of nutrients or foods or perhaps energy intake.
+
+- Which kind of statistical methods are suitable for conducting **unsupervised learning** about temporal eating patterns in a more synthetic and interpretable way?
+
+---
+class: top, right 
+background-image: url("./img/multilevel.png")
+background-position: 20% 50%
+background-size: contain
+### How can we account <br> for the data collected <br> **over the 4 days and nested** <br> within the same person ?
+
+
+
 
 ---
 class: middle
-# Methods (2) -- analysis
+# Latent class analysis (1)
 
-- Latent Class Analysis (CLA): to separate people into several eating pattern groups and also to calculate the probability of an Eating Occasion (EO) occurring for each class for every hour of the day. 
+- Latent Class Analysis (LCA): to separate people into several eating pattern groups and also to calculate the probability of an Eating Occasion (EO) occurring for each class for every hour of the day. 
 
-- For every hour of the day whether an EO had occurred need to be calculated individually.
+- Let $L$ be the categorical latent variable with $c = 1,\cdots, C$ latent classes. $r_c$ represents the **prevalence/the probability** of latent variable. 
 
-- The definition of an eating occasion specifically for carbohydrates need to be defined (total energy intake may also need to be adjusted).
+- The latent classes are defined to be **mutually exclusive and exhaustive**. Therefore, $$\sum_{c=1}^Cr_c = 1$$ 
 
-- Multiple days (3-4 days) of dietary intake records need to be combined (average) or may be analysed using longitudinal data method allowing for individual random errors. 
 
-- Association between the eating pattern groups defined by CLA and obesity/diabetes will be explored through logistic regression models.
+
+---
+class: middle
+# Latent class analysis (2)
+
+
+- The item response probability $\rho_{j, r_j | c}$ represents the probability of the response $r_j$ to observed variable $j$, given (conditional on) membership in latent class $c$.
+
+$$\sum_{r_j = 1}^{R_j}\rho_{j,r_j|c} = 1$$
+
+- Because $$P(\overrightarrow{Y} = \overrightarrow{y} | L = c) = \prod_{j = 1}^J\prod_{r_j = 1}^{R_j}\rho_{j,r_j|c}$$
+
+- Also because the [definition of conditional probability](https://wangcc.me/seminar_2019/#8): $P(A \cap B) = P(A)P(A|B)$: 
+
+$$P(\overrightarrow{Y} = \overrightarrow{y}  \cap L = c) = P(L = c)P(\overrightarrow{Y} = \overrightarrow{y} | L = c)$$
 
 ???
+because each individual provides one response to variable $j$, the vector of item-response probabilities for a pariticular variable conditional on a particular latent class sums to 1.
 
-The statistical method here we are going to use is Latent class analysis. I will need to go through the methodology of this technique and clarify the differences and similarities of LCA with cluster analysis and principal component analysis.
+---
+class: middle
+# Latent class analysis (3)
 
-Further potential issues that I can anticipate currently is that (on the slides)... 
+$$
+\begin{aligned}
+P(\overrightarrow{Y} = \overrightarrow{y}  \cap L = c) &= P(L = c)P(\overrightarrow{Y} = \overrightarrow{y} | L = c) \\
+                                 &= r_c \prod_{j = 1}^J\prod_{r_j = 1}^{R_j}\rho_{j,r_j|c}
+\end{aligned}
+$$
+
+- Also because 
+
+$$P(\overrightarrow{Y} = \overrightarrow{y} ) = \sum_{c = 1}^CP(\overrightarrow{Y} = \overrightarrow{y}  \cap L = c)$$
+
+- Therefore, 
+
+$$P(\overrightarrow{Y} = \overrightarrow{y} ) = \sum_{c = 1}^Cr_c \prod_{j = 1}^J\prod_{r_j = 1}^{R_j}\rho_{j,r_j|c}$$
+
+
+---
+class: middle 
+
+# Multilevel LCA (1)
+
+We already know that (if we know the distribution of $r_{ck}$) multilevel logistic regression can be defined as:
+$$
+\begin{aligned}
+\text{logit}[P(C_{ik}) = r_{ck}] & = \beta_{0k} + \beta_{1}x_{ik} \;\;\;\;\;\;\;\;\; \textbf{(day-level)}  \\
+\beta_{0k} & = \gamma_0 + \gamma_1 w_k + u_{0k} \; \textbf{(individual-level)} \\ 
+\Rightarrow P(C_{ik}) & = \frac{\exp{(\gamma_0 + \beta_{1}x_{ik} + \gamma_1 w_k + u_{0k})}}{1 + \exp{(\gamma_0 + \beta_{1}x_{ik} + \gamma_1 w_k + u_{0k})}} \\
+\end{aligned}
+$$
+
+- $P(C_{ik}) = r_{ck}$ Represents the randomly selected $i$th observation **day** of the $k$th individual is **a particular carbohydrate eating day $c$**.
+
+- $\beta_{0k}$ is the random intercept; 
+
+- $u_{0k} \sim N(0, \sigma^2_{u_0})$ where $\sigma^2_{u_0}$ indicates the influence of the **individuals**.
 
 
 
+---
+class: middle 
 
+# Multilevel LCA (2)
+
+So, we can extend the LCA model with random intercepts that allows the same person to have different probabilities across several days of data: 
+
+$$P(\overrightarrow{Y_k} = \overrightarrow{y_k}) = \sum_{c = 1}^Cr_{ck} \prod_{j = 1}^J\prod_{r_j = 1}^{R_j}\rho_{j,r_j|c,k}$$
+
+---
+class:middle 
+## Data description <br>and choices made for modelling: 
+
+- 24483 days observed on 6155 adults (2537 men and 3618 women); 
+
+- Seven time slots as in NDNS classification; 
+
+- Categorization of caborhydrate (CH) consumption: 
+
+    - no intake;
+    - CH contributed >= 50% of total energy intake; 
+    - CH contributed < 50% of total energy intake.
+
+---
+class:top, left, inverse
+background-image: url("./img/Fig01forpaper.png")
+background-position: 50% 50%
+background-size: contain
+<!-- ### Day level -->
+
+---
+class:top, left
+background-image: url("./img/Fig02forpaper.png")
+background-position: 50% 50%
+background-size: contain
+<!-- ### Day level -->
+
+---
+class:top, left, inverse
+background-image: url("./img/Fig03forpaper.png")
+background-position: 50% 50%
+background-size: contain
+<!-- ### Day level -->
+
+
+---
+class: middle
+
+# Discussion
+
+- Low-CH eaters cunsumed the highest amount of total energy intake (7985.5 kJ), and had higher percentages of energy contributed by fat and alcohol, especially after 8 pm. 
+
+- Moderate-CH eaters consumed the lowest amount of total energy (7341.8 kJ) while they had the tendency of eating later in the day. 
+
+- Hig-CH eaters consumed most of their CH and energy within time slots of 6-9 am, 12-2 pm, and 5-8 pm. 
+
+
+- The high-CH eaters' profile seemed to be the healthiest. 
+
+- Low-CH eaters may have resulted from health/weight concerns, leading to fat or alcohol as replacements for CH.
 
 ---
 
