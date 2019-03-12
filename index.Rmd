@@ -1,8 +1,11 @@
 ---
 title: "The timing of carbohydrates intake"
-subtitle: "the National Diet and Nutrition Survey Rolling Programme (2008-2014)"
+subtitle: "the National Diet and Nutrition Survey Rolling Programme (2008-~~2014~~2016)"
 author: "Chaochen Wang"
-date: "2018/4/23-Project Talk (LG6)"
+date: 
+      ~~2018/4/23-Project Talk (LG6)~~
+      <br>
+      2019/03/12 Seminar in the Department of Public Health, Nagoya City University
 output:
   xaringan::moon_reader:
     css: [default, "css/LSHTM.css", metropolis-fonts]
@@ -21,7 +24,7 @@ options(htmltools.dir.version = FALSE)
 
 # Background
 
-.medium["Temporal eating patterns"--the timing, frequency, and regularity of food intake or eating occasions across the day may play a role in health outcomes:] 
+.medium["Temporal eating patterns"--the **timing**, **frequency**, and **regularity** of food intake or eating occasions across the day may play a role in health outcomes:] 
 
 - Interplay between timing of food intake and circadian rhythms, physiology, and metabolism. (Asher *et al* 2015, Cell) 
 
